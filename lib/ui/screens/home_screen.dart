@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yet_flix/ui/screens/single_movie_screen.dart';
 
 import '../widgets/heading_section.dart';
 import '../widgets/movies_poster_slider.dart';
@@ -72,54 +73,59 @@ class _HomeScreenState extends State<HomeScreen> {
     } return moviesCardList;
   }
   Widget buildMoviesCard(BuildContext context) {
-    return SizedBox(
-            width: 200,
-            height: 280,
-            child: Card(
-              color: const Color(0xff27272F),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      topRight: Radius.circular(8),
+    return GestureDetector(
+      onTap: (){
+        Navigator.pushNamed(context, SingleMovieScreen.name);
+      },
+      child: SizedBox(
+              width: 200,
+              height: 280,
+              child: Card(
+                color: const Color(0xff27272F),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        topRight: Radius.circular(8),
+                      ),
+                      child: Image.network("https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/spider-man-no-way-home-poster.jpg",
+                      height: 180,
+                      width: 200,
+                      fit: BoxFit.cover,
+                      ),
                     ),
-                    child: Image.network("https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/spider-man-no-way-home-poster.jpg",
-                    height: 180,
-                    width: 200,
-                    fit: BoxFit.cover,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Movie title here",
+                            style: Theme.of(context).textTheme.titleLarge
+                                ?.copyWith(fontWeight: FontWeight.w700),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const Text("Action/Adventure",
+                            style: TextStyle(color: Colors.grey),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const Row(
+                            children: [
+                              Icon(Icons.star_rounded, color: Colors.amber,),
+                              Text("8.5", style: TextStyle(color: Colors.grey),)
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Movie title here",
-                          style: Theme.of(context).textTheme.titleLarge
-                              ?.copyWith(fontWeight: FontWeight.w700),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const Text("Action/Adventure",
-                          style: TextStyle(color: Colors.grey),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const Row(
-                          children: [
-                            Icon(Icons.star_rounded, color: Colors.amber,),
-                            Text("8.5", style: TextStyle(color: Colors.grey),)
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          );
+    );
   }
   
   void _onTapMoviesListScreen(){
