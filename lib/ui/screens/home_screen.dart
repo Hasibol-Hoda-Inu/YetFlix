@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const MoviesPosterSlider(),
               const SizedBox(height: 16,),
-              HeadingSection(onTap: (){}, title: "New Movies"),
+              HeadingSection(onTap: _onTapMoviesListScreen, title: "New Movies"),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 16,),
-              HeadingSection(onTap: (){}, title: "Thriller Movies"),
+              HeadingSection(onTap: _onTapMoviesListScreen, title: "Thriller Movies"),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -72,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
        moviesCardList.add(buildMoviesCard(context));
     } return moviesCardList;
   }
+
   Widget buildMoviesCard(BuildContext context) {
     return GestureDetector(
       onTap: (){
