@@ -65,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   List<Widget> _moviesCardSlider(){
     List<Widget> moviesCardList = [];
     for(int i=0; i<7; i++){
@@ -127,10 +128,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
     );
   }
-  
+
   void _onTapMoviesListScreen(){
     Navigator.pushNamed(context, MoviesListScreen.name);
   }
+
   Row buildHomeScreenAppBar() {
     return const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
