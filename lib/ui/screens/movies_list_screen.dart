@@ -17,7 +17,12 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
       ),
       body: Column(
         children: [
-          Text("Discover", style: TextTheme.of(context).titleLarge,)
+          Text("Discover", style: TextTheme.of(context).titleLarge,),
+          ListTile(
+            leading: ClipOval(child: Image.network("https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/spider-man-no-way-home-poster.jpg"),),
+            title: Text("Movie Name"),
+            subtitle: Text("Movie Details"),
+          ),
         ],
       ),
     );
