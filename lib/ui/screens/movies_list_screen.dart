@@ -22,7 +22,6 @@ class _MoviesListScreenState extends State<MoviesListScreen> {
             leading: ClipOval(child: Image.network("https://static0.srcdn.com/wordpress/wp-content/uploads/2023/03/spider-man-no-way-home-poster.jpg"),),
             title: Text("Movie Name"),
             subtitle: Text("Movie Details"),
-
           ),
         ],
       ),
